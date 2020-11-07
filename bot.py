@@ -30,6 +30,8 @@ START_MSG = '''Вітання!
 
 Група для обговорення: https://t.me/speech_recognition_uk'''
 
+FIRST_STEP = '''Використовувати бота просто: надішліть аудіоповідомлення і чекайте відповіді'''
+
 device = torch.device('cpu')
 
 jit_model = dirname(__file__) + '/model/ua_v1_jit.model'
@@ -41,6 +43,7 @@ bot = telebot.TeleBot(TOKEN, parse_mode=None)
 @bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     bot.reply_to(message, START_MSG)
+    bot.reply_to(message, FIRST_STEP)
 
 
 @bot.message_handler(content_types=['voice'])
