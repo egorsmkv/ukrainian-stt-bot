@@ -1,0 +1,18 @@
+[Unit]
+Description=Ukrainian STT bot for Telegram
+After=network-online.target remote-fs.target nss-lookup.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/bin/python /path/bot.py
+Environment=TOKEN=...
+Restart=always
+RestartSec=5
+StartLimitBurst=5
+StartLimitInterval=0
+
+[Install]
+WantedBy=multi-user.target

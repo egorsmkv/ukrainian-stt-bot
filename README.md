@@ -1,0 +1,28 @@
+# Telegram Bot: Speech-to-Text for the Ukrainian language based on Silero
+
+This is a repository with demonstration code that uses [the Silero Model for Ukrainian](https://github.com/snakers4/silero-models) 
+in the task of Speech-to-Text recognition.
+
+### How to run
+
+Install dependencies and enter the python environment:
+
+```
+pipenv install
+pipenv shell
+```
+
+Run the bot:
+
+```
+export TOKEN="...."
+python bot.py
+```
+
+### Other
+
+#### Convert a file to the PCM wav file 
+
+```
+ffmpeg -i input.mp3 -acodec pcm_s16le -ac 1 -ar 16000 output.wav
+```
